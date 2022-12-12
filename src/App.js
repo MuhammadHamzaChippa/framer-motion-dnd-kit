@@ -24,16 +24,22 @@ function App() {
     if (!over) {
       return;
     }
-    console.log(event);
-  
+    const height = over.rect.height;
+    const width = over.rect.width;
     const draggingObjectId = active.id;
     const oldInstance = [...Instance];
     const newInstance = oldInstance.map((item) => {
       if (item.label === draggingObjectId) {
+        const convertedX = (item.x * width) / 100;
+        const convertedY = (item.y * height) / 100;
+        const finalX = convertedX + delta.x;
+        const finalY = convertedY + delta.y;
+        const finalXPercentage = (finalX * 100) / width;
+        const finalYPercentage = (finalY * 100) / height;
         return {
           ...item,
-          x: item.x + delta.x,
-          y: item.y + delta.y,
+          x: finalXPercentage ,
+          y: finalYPercentage ,
         };
       }
       return item;

@@ -10,8 +10,8 @@ const Draggable = ({ item }) => {
     <motion.div
       ref={setNodeRef}
       animate={{
-        top: `${item.y}px`,
-        left: `${item.x}px`,
+        top: `${item.y}%`,
+        left: `${item.x}%`,
         background: item.background,
         width: item.width,
         padding: "10px",
