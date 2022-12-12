@@ -55,16 +55,12 @@ function App() {
     >
       <DroppableContainer>
         {Instance.map((item) => (
-          <Draggable item={item} key={item.label} className={className} />
+          <Draggable item={item} key={item.label} className={className} Instance={Instance} setClassName={setClassName} />
         ))}
         <div style={{ position: "absolute", bottom: "0px" }}>
           <button
             onClick={() => {
-              setClassName("")
-              setTimeout(() => {
-                setClassName("dragging");
-                console.log("Instance 1 set");
-              }, 5000);
+              setClassName("");
               setInstance(Instance1);
             }}
           >
@@ -72,11 +68,7 @@ function App() {
           </button>
           <button
             onClick={() => {
-              setClassName("")
-              setTimeout(() => {
-                setClassName("dragging");
-                console.log("Instance 2 set");
-              }, 5000);
+              setClassName("");
               setInstance(Instance2);
             }}
           >
@@ -84,11 +76,7 @@ function App() {
           </button>
           <button
             onClick={() => {
-              setClassName("")
-              setTimeout(() => {
-                setClassName("dragging");
-                console.log("Instance 3 set");
-              }, 5000);
+              setClassName("");
               setInstance(Instance3);
             }}
           >
