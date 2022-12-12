@@ -14,6 +14,7 @@ import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 
 function App() {
   const [Instance, setInstance] = useState(Instance1);
+  const [className, setClassName] = useState("");
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
     useSensor(TouchSensor, {}),
@@ -38,8 +39,8 @@ function App() {
         const finalYPercentage = (finalY * 100) / height;
         return {
           ...item,
-          x: finalXPercentage ,
-          y: finalYPercentage ,
+          x: finalXPercentage,
+          y: finalYPercentage,
         };
       }
       return item;
@@ -54,12 +55,45 @@ function App() {
     >
       <DroppableContainer>
         {Instance.map((item) => (
-          <Draggable item={item} key={item.label} />
+          <Draggable item={item} key={item.label} className={className} />
         ))}
         <div style={{ position: "absolute", bottom: "0px" }}>
-          <button onClick={() => setInstance(Instance1)}>Instance 1</button>
-          <button onClick={() => setInstance(Instance2)}>Instance 2</button>
-          <button onClick={() => setInstance(Instance3)}>Instance 3</button>
+          <button
+            onClick={() => {
+              setClassName("")
+              setTimeout(() => {
+                setClassName("dragging");
+                console.log("Instance 1 set");
+              }, 5000);
+              setInstance(Instance1);
+            }}
+          >
+            Instance 1
+          </button>
+          <button
+            onClick={() => {
+              setClassName("")
+              setTimeout(() => {
+                setClassName("dragging");
+                console.log("Instance 2 set");
+              }, 5000);
+              setInstance(Instance2);
+            }}
+          >
+            Instance 2
+          </button>
+          <button
+            onClick={() => {
+              setClassName("")
+              setTimeout(() => {
+                setClassName("dragging");
+                console.log("Instance 3 set");
+              }, 5000);
+              setInstance(Instance3);
+            }}
+          >
+            Instance 3
+          </button>
         </div>
       </DroppableContainer>
     </DndContext>

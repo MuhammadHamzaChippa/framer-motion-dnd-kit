@@ -1,4 +1,6 @@
 .dragging {
   cursor: grabbing;
-  transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) scale(var(--scale, 1));
+  top: var(--top) !important;
+  left: var(--left) !important;
+  transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) scale(var(--scale, 1)) !important;
 }
